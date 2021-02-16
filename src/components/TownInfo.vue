@@ -12,7 +12,7 @@
       }"
     ></li>
     <li v-if="players.length - teams.traveler < 5">
-      Please add more players!
+      {{ $t("add-more") }}
     </li>
     <li>
       <span class="meta" v-if="!edition.isOfficial">
@@ -64,7 +64,7 @@
         />
       </span>
       <span v-if="grimoire.isNight">
-        Night phase
+        {{ $t("night-phase") }}
         <font-awesome-icon :icon="['fas', 'cloud-moon']" />
       </span>
     </li>
@@ -97,6 +97,15 @@ export default {
   }
 };
 </script>
+
+<i18n>
+  {
+    "en": {
+      "add-more": "Please add more players!",
+      "night-phase": "Night phase"
+    }
+  }
+</i18n>
 
 <style lang="scss" scoped>
 @import "../vars.scss";

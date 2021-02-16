@@ -4,7 +4,7 @@
     v-if="modals.gameState"
     @close="toggleModal('gameState')"
   >
-    <h3>Current Game State</h3>
+    <h3>{{ $t("current-game-state") }}</h3>
     <textarea
       :value="gamestate"
       @input.stop="input = $event.target.value"
@@ -13,10 +13,10 @@
     ></textarea>
     <div class="button-group">
       <div class="button townsfolk" @click="copy">
-        <font-awesome-icon icon="copy" /> Copy JSON
+        <font-awesome-icon icon="copy" /> {{ $t("copy-json") }}
       </div>
       <div class="button demon" @click="load" v-if="!session.isSpectator">
-        <font-awesome-icon icon="cog" /> Load State
+        <font-awesome-icon icon="cog" /> {{ $t("load-state") }}
       </div>
     </div>
   </Modal>
@@ -103,6 +103,16 @@ export default {
   }
 };
 </script>
+
+<i18n>
+  {
+    "en": {
+      "current-game-state": "Current Game State",
+      "copy-json": "Copy JSON",
+      "load-state": "Load State"
+    }
+  }
+</i18n>
 
 <style lang="scss" scoped>
 @import "../../vars.scss";

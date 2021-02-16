@@ -22,7 +22,7 @@
       v-if="session.sessionId"
       @click="leaveSession"
       :title="
-        `${session.playerCount} other players in this session${
+        `${session.playerCount} ${$t('other-players-in-session')}${
           session.ping ? ' (' + session.ping + 'ms latency)' : ''
         }`
       "
@@ -47,19 +47,23 @@
 
         <template v-if="tab === 'grimoire'">
           <!-- Grimoire -->
-          <li class="headline">Grimoire</li>
+          <li class="headline">{{ $t("grimoire") }}</li>
           <li @click="toggleGrimoire" v-if="players.length">
-            <template v-if="!grimoire.isPublic">Hide</template>
-            <template v-if="grimoire.isPublic">Show</template>
+            <template v-if="!grimoire.isPublic">{{ $t("hide") }}</template>
+            <template v-if="grimoire.isPublic">{{ $t("show") }}</template>
             <em>[G]</em>
           </li>
           <li @click="toggleNight" v-if="!session.isSpectator">
-            <template v-if="!grimoire.isNight">Switch to Night</template>
-            <template v-if="grimoire.isNight">Switch to Day</template>
+            <template v-if="!grimoire.isNight">
+              {{ $t("switch-night") }}
+            </template>
+            <template v-if="grimoire.isNight">
+              {{ $t("switch-day") }}
+            </template>
             <em>[S]</em>
           </li>
           <li @click="toggleNightOrder" v-if="players.length">
-            Night order
+            {{ $t("night-order") }}
             <em>
               <font-awesome-icon
                 :icon="[
@@ -70,7 +74,7 @@
             </em>
           </li>
           <li v-if="players.length">
-            Zoom
+            {{ $t("zoom") }}
             <em>
               <font-awesome-icon
                 @click="setZoom(grimoire.zoom - 1)"
@@ -84,11 +88,11 @@
             </em>
           </li>
           <li @click="setBackground">
-            Background image
+            {{ $t("background-image") }}
             <em><font-awesome-icon icon="image"/></em>
           </li>
           <li v-if="!edition.isOfficial" @click="imageOptIn">
-            <small>Show Custom Images</small>
+            <small>{{ $t("show-custom-image") }}</small>
             <em
               ><font-awesome-icon
                 :icon="[
@@ -98,14 +102,14 @@
             /></em>
           </li>
           <li @click="toggleStatic">
-            Disable Animations
+            {{ $t("disable-animations") }}
             <em
               ><font-awesome-icon
                 :icon="['fas', grimoire.isStatic ? 'check-square' : 'square']"
             /></em>
           </li>
           <li @click="toggleMuted">
-            Mute Sounds
+            {{ $t("mute-sounds") }}
             <em
               ><font-awesome-icon
                 :icon="['fas', grimoire.isMuted ? 'volume-mute' : 'volume-up']"
@@ -116,36 +120,37 @@
         <template v-if="tab === 'session'">
           <!-- Session -->
           <li class="headline" v-if="session.sessionId">
-            {{ session.isSpectator ? "Playing" : "Hosting" }}
+            {{ session.isSpectator ? $t("playing") : $t("hosting") }}
           </li>
           <li class="headline" v-else>
-            Live Session
+            {{ $t("live-session") }}
           </li>
           <template v-if="!session.sessionId">
-            <li @click="hostSession">Host (Storyteller)<em>[H]</em></li>
-            <li @click="joinSession">Join (Player)<em>[J]</em></li>
+            <li @click="hostSession">{{ $t("host") }}<em>[H]</em></li>
+            <li @click="joinSession">{{ $t("join") }}<em>[J]</em></li>
           </template>
           <template v-else>
             <li v-if="session.ping">
-              Delay to {{ session.isSpectator ? "host" : "players" }}
+              {{ $t("delay-to") }}
+              {{ session.isSpectator ? "host" : "players" }}
               <em>{{ session.ping }}ms</em>
             </li>
             <li @click="copySessionUrl">
-              Copy player link
+              {{ $t("copy-player-link") }}
               <em><font-awesome-icon icon="copy"/></em>
             </li>
             <li v-if="!session.isSpectator" @click="distributeRoles">
-              Send Characters
+              {{ $t("send-characters") }}
               <em><font-awesome-icon icon="theater-masks"/></em>
             </li>
             <li
               v-if="session.voteHistory.length || !session.isSpectator"
               @click="toggleModal('voteHistory')"
             >
-              Vote history<em>[V]</em>
+              {{ $t("vote-history") }}<em>[V]</em>
             </li>
             <li @click="leaveSession">
-              Leave Session
+              {{ $t("leave-session") }}
               <em>{{ session.sessionId }}</em>
             </li>
           </template>
@@ -153,60 +158,62 @@
 
         <template v-if="tab === 'players' && !session.isSpectator">
           <!-- Users -->
-          <li class="headline">Players</li>
-          <li @click="addPlayer" v-if="players.length < 20">Add<em>[A]</em></li>
+          <li class="headline">{{ $t("players") }}</li>
+          <li @click="addPlayer" v-if="players.length < 20">
+            {{ $t("add") }}<em>[A]</em>
+          </li>
           <li @click="randomizeSeatings" v-if="players.length > 2">
-            Randomize
+            {{ $t("randomize") }}
             <em><font-awesome-icon icon="dice"/></em>
           </li>
           <li @click="clearPlayers" v-if="players.length">
-            Remove all
+            {{ $t("remove-all") }}
             <em><font-awesome-icon icon="trash-alt"/></em>
           </li>
         </template>
 
         <template v-if="tab === 'characters'">
           <!-- Characters -->
-          <li class="headline">Characters</li>
+          <li class="headline">{{ $t("characters") }}</li>
           <li v-if="!session.isSpectator" @click="toggleModal('edition')">
-            Select Edition
+            {{ $t("select-edition") }}
             <em>[E]</em>
           </li>
           <li
             @click="toggleModal('roles')"
             v-if="!session.isSpectator && players.length > 4"
           >
-            Choose & Assign
+            {{ $t("choose-assign") }}
             <em>[C]</em>
           </li>
           <li v-if="!session.isSpectator" @click="toggleModal('fabled')">
-            Add Fabled
+            {{ $t("add-fabled") }}
             <em><font-awesome-icon icon="dragon"/></em>
           </li>
           <li @click="clearRoles" v-if="players.length">
-            Remove all
+            {{ $t("remove-all") }}
             <em><font-awesome-icon icon="trash-alt"/></em>
           </li>
         </template>
 
         <template v-if="tab === 'help'">
           <!-- Help -->
-          <li class="headline">Help</li>
+          <li class="headline">{{ $t("help") }}</li>
           <li @click="toggleModal('reference')">
-            Reference Sheet
+            {{ $t("reference-sheet") }}
             <em>[R]</em>
           </li>
           <li @click="toggleModal('nightOrder')">
-            Night Order Sheet
+            {{ $t("night-order-sheet") }}
             <em>[N]</em>
           </li>
           <li @click="toggleModal('gameState')">
-            Game State JSON
+            {{ $t("game-state-json") }}
             <em><font-awesome-icon icon="file-code"/></em>
           </li>
           <li>
             <a href="https://discord.gg/Gd7ybwWbFk" target="_blank">
-              Join Discord
+              {{ $t("join-discord") }}
             </a>
             <em>
               <a href="https://discord.gg/Gd7ybwWbFk" target="_blank">
@@ -216,7 +223,7 @@
           </li>
           <li>
             <a href="https://github.com/bra1n/townsquare" target="_blank">
-              Source code
+              {{ $t("source-code") }}
             </a>
             <em>
               <a href="https://github.com/bra1n/townsquare" target="_blank">
@@ -245,7 +252,7 @@ export default {
   },
   methods: {
     setBackground() {
-      const background = prompt("Enter custom background URL");
+      const background = prompt(this.$t("enter-background"));
       if (background || background === "") {
         this.$store.commit("setBackground", background);
       }
@@ -253,7 +260,7 @@ export default {
     hostSession() {
       if (this.session.sessionId) return;
       const sessionId = prompt(
-        "Enter a channel number / name for your session",
+        this.$t("create-session"),
         Math.round(Math.random() * 10000)
       );
       if (sessionId) {
@@ -270,8 +277,7 @@ export default {
     },
     distributeRoles() {
       if (this.session.isSpectator) return;
-      const popup =
-        "Do you want to distribute assigned characters to all SEATED players?";
+      const popup = this.$t("distribute-roles");
       if (confirm(popup)) {
         this.$store.commit("session/distributeRoles", true);
         setTimeout(
@@ -283,17 +289,14 @@ export default {
       }
     },
     imageOptIn() {
-      const popup =
-        "Are you sure you want to allow custom images? A malicious script file author might track your IP address this way.";
+      const popup = this.$t("custom-images-warn");
       if (this.grimoire.isImageOptIn || confirm(popup)) {
         this.toggleImageOptIn();
       }
     },
     joinSession() {
       if (this.session.sessionId) return this.leaveSession();
-      let sessionId = prompt(
-        "Enter the channel number / name of the session you want to join"
-      );
+      let sessionId = prompt(this.$t("join-session"));
       if (sessionId.match(/^https?:\/\//i)) {
         sessionId = sessionId.split("#").pop();
       }
@@ -305,7 +308,7 @@ export default {
       }
     },
     leaveSession() {
-      if (confirm("Are you sure you want to leave the active live game?")) {
+      if (confirm(this.$t("leave-warn"))) {
         this.$store.commit("session/setSpectator", false);
         this.$store.commit("session/setSessionId", "");
       }
@@ -313,20 +316,20 @@ export default {
     addPlayer() {
       if (this.session.isSpectator) return;
       if (this.players.length >= 20) return;
-      const name = prompt("Player name");
+      const name = prompt(this.$t("player-name"));
       if (name) {
         this.$store.commit("players/add", name);
       }
     },
     randomizeSeatings() {
       if (this.session.isSpectator) return;
-      if (confirm("Are you sure you want to randomize seatings?")) {
+      if (confirm(this.$t("randomize-warn"))) {
         this.$store.dispatch("players/randomize");
       }
     },
     clearPlayers() {
       if (this.session.isSpectator) return;
-      if (confirm("Are you sure you want to remove all players?")) {
+      if (confirm(this.$t("remove-players-warn"))) {
         // abort vote if in progress
         if (this.session.nomination) {
           this.$store.commit("session/nomination");
@@ -335,7 +338,7 @@ export default {
       }
     },
     clearRoles() {
-      if (confirm("Are you sure you want to remove all player roles?")) {
+      if (confirm(this.$t("remove-roles-warn"))) {
         this.$store.dispatch("players/clearRoles");
       }
     },
@@ -358,6 +361,60 @@ export default {
   }
 };
 </script>
+
+<i18n>
+  {
+    "en": {
+      "grimoire": "Grimoire",
+      "zoom": "Zoom",
+      "other-players-in-session": "other players in this session",
+      "show-background-image": "Show background image",
+      "background-image": "Background image",
+      "show-custom-image": "Show custom image",
+      "night-order": "Night order",
+      "disable-animations": "Disable animations",
+      "mute-sounds": "Mute sounds",
+      "playing": "Playing",
+      "hosting": "Hosting",
+      "switch-night": "Switch to night",
+      "switch-day": "Switch to day",
+      "show": "Show",
+      "hide": "Hide",
+      "live-session": "Live Session",
+      "delay-to": "Delay to ",
+      "vote-history": "Vote history",
+      "leave-session": "Leave Session",
+      "players": "Players",
+      "add": "Add",
+      "randomize": "Randomize",
+      "remove-all": "Remove all",
+      "characters": "Characters",
+      "select-edition": "Select Edition",
+      "choose-assign": "Choose & Assign",
+      "add-fabled": "Add Fabled",
+      "help": "Help",
+      "reference-sheet": "Reference Sheet",
+      "night-order-sheet": "Night Order Sheet",
+      "game-state-json": "Game State JSON",
+      "join-discord": "Join Discord",
+      "source-code": "Source code",
+      "host": "Host (Storyteller)",
+      "join": "Join (Player)",
+      "copy-player-link": "Copy player link",
+      "send-characters": "Send characters",
+      "player-name": "Player name",
+      "enter-background": "Enter custom background URL",
+      "create-session": "Enter a channel number / name for your session",
+      "distribute-roles": "Do you want to distribute assigned characters to all SEATED players?",
+      "custom-images-warn": "Are you sure you want to allow custom images? A malicious script file author might track your IP address this way.",
+      "join-session": "Enter the channel number / name of the session you want to join",
+      "leave-warn": "Are you sure you want to leave the active live game?",
+      "randomize-warn": "Are you sure you want to randomize seatings?",
+      "remove-players-warn": "Are you sure you want to remove all players?",
+      "remove-roles-warn": "Are you sure you want to remove all player roles?"
+    }
+  }
+</i18n>
 
 <style scoped lang="scss">
 @import "../vars.scss";

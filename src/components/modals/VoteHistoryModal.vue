@@ -12,7 +12,7 @@
       v-if="session.isSpectator"
     />
 
-    <h3>Vote history</h3>
+    <h3>{{ $t("vote-history") }}</h3>
 
     <template v-if="!session.isSpectator">
       <div class="options">
@@ -23,26 +23,26 @@
               session.isVoteHistoryAllowed ? 'check-square' : 'square'
             ]"
           />
-          Accessible to players
+          {{ $t("accessible-players") }}
         </div>
         <div class="option" @click="clearVoteHistory">
           <font-awesome-icon icon="trash-alt" />
-          Clear for everyone
+          {{ $t("clear") }}
         </div>
       </div>
     </template>
     <table>
       <thead>
         <tr>
-          <td>Time</td>
-          <td>Nominator</td>
-          <td>Nominee</td>
-          <td>Type</td>
-          <td>Votes</td>
-          <td>Majority</td>
+          <td>{{ $t("time") }}</td>
+          <td>{{ $t("nominator") }}</td>
+          <td>{{ $t("nominee") }}</td>
+          <td>{{ $t("type") }}</td>
+          <td>{{ $t("votes") }}</td>
+          <td>{{ $t("majority") }}</td>
           <td>
             <font-awesome-icon icon="user-friends" />
-            Voters
+            {{ $t("voters") }}
           </td>
         </tr>
       </thead>
@@ -111,6 +111,23 @@ export default {
   }
 };
 </script>
+
+<i18n>
+  {
+    "en": {
+      "vote-history": "Vote history",
+      "accessible-players": "Accessible to players",
+      "clear": "Clear for everyone",
+      "time": "Time",
+      "nominator": "Nominator",
+      "nominee": "Nominee",
+      "type": "Type",
+      "votes": "Votes",
+      "majority": "Majority",
+      "voters": "Voters"
+    }
+  }
+</i18n>
 
 <style lang="scss" scoped>
 @import "../../vars.scss";

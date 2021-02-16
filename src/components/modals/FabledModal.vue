@@ -1,7 +1,7 @@
 <template>
   <Modal v-if="modals.fabled && fabled.length" @close="toggleModal('fabled')">
     <h3>
-      Choose a fabled character to add to the game
+      {{ $t("choose-fabled") }}
     </h3>
     <ul class="tokens">
       <li v-for="role in fabled" :key="role.id" @click="setFabled(role)">
@@ -44,6 +44,14 @@ export default {
   }
 };
 </script>
+
+<i18n>
+  {
+    "en": {
+      "choose-fabled": "Choose a fabled character to add to the game"
+    }
+  }
+</i18n>
 
 <style scoped lang="scss">
 @import "../../vars.scss";
