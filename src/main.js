@@ -1,4 +1,5 @@
 import Vue from "vue";
+import VueI18n from "vue-i18n";
 import App from "./App";
 import store from "./store";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -60,8 +61,10 @@ library.add(
 );
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.config.productionTip = false;
+Vue.use(VueI18n);
 
 new Vue({
   render: h => h(App),
+  i18n: new VueI18n({ locale: "en", fallbackLocale: "en" }),
   store
 }).$mount("#app");

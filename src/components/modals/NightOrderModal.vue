@@ -8,16 +8,16 @@
       @click="toggleModal('reference')"
       icon="address-card"
       class="toggle"
-      title="Show Character Reference"
+      :title="this.$t('show-reference')"
     />
     <h3>
-      Night Order
+      {{ $t("night-order") }}
       <font-awesome-icon icon="cloud-moon" />
       {{ edition.name || "Custom Script" }}
     </h3>
     <div class="night">
       <ul class="first">
-        <li class="headline">First Night</li>
+        <li class="headline">{{ $t("first-night") }}</li>
         <li
           v-for="role in rolesFirstNight"
           :key="role.name"
@@ -56,7 +56,7 @@
         </li>
       </ul>
       <ul class="other">
-        <li class="headline">Other Nights</li>
+        <li class="headline">{{ $t("other-nights") }}</li>
         <li
           v-for="role in rolesOtherNight"
           :key="role.name"
@@ -173,6 +173,17 @@ export default {
   }
 };
 </script>
+
+<i18n>
+  {
+    "en": {
+      "show-reference": "Show Character Reference",
+      "night-order": "Night Order",
+      "first-night": "First Night",
+      "other-nights": "Other Nights"
+    }
+  }
+</i18n>
 
 <style lang="scss" scoped>
 @import "../../vars.scss";

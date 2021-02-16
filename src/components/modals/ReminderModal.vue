@@ -3,7 +3,7 @@
     v-if="modals.reminder && availableReminders.length && players[playerIndex]"
     @close="toggleModal('reminder')"
   >
-    <h3>Choose a reminder token:</h3>
+    <h3>{{ $t("reminder-token") }}:</h3>
     <ul class="reminders">
       <li
         v-for="reminder in availableReminders"
@@ -112,6 +112,14 @@ export default {
   }
 };
 </script>
+
+<i18n>
+  {
+    "en": {
+      "reminder-token": "Choose a reminder token"
+    }
+  }
+</i18n>
 
 <style scoped lang="scss">
 ul.reminders .reminder {

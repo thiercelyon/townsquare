@@ -4,7 +4,11 @@
     v-if="modals.roles && nonTravelers >= 5"
     @close="toggleModal('roles')"
   >
-    <h3>Select the characters for {{ nonTravelers }} players:</h3>
+    <i18n path="select-roles" tag="h3">
+      <template #nonTravelers>
+        {{ nonTravelers }}
+      </template>
+    </i18n>
     <ul class="tokens" v-for="(teamRoles, team) in roleSelection" :key="team">
       <li class="count" :class="[team]">
         {{ teamRoles.reduce((a, { selected }) => a + selected, 0) }} /
@@ -31,14 +35,13 @@
     <div class="warning" v-if="hasSelectedSetupRoles">
       <font-awesome-icon icon="exclamation-triangle" />
       <span>
-        Warning: there are characters selected that modify the game setup! The
-        randomizer does not account for these characters.
+        {{ $t("warning-incorrect-setup") }}
       </span>
     </div>
     <label class="multiple" :class="{ checked: allowMultiple }">
       <font-awesome-icon :icon="allowMultiple ? 'check-square' : 'square'" />
       <input type="checkbox" name="allow-multiple" v-model="allowMultiple" />
-      Allow duplicate characters
+      {{ $t("allow-duplicate") }}
     </label>
     <div class="button-group">
       <div
@@ -49,11 +52,15 @@
         }"
       >
         <font-awesome-icon icon="people-arrows" />
-        Assign {{ selectedRoles }} characters randomly
+        <i18n path="assign-randomly" tag="span">
+          <template #roles>
+            {{ selectedRoles }}
+          </template>
+        </i18n>
       </div>
       <div class="button" @click="selectRandomRoles">
         <font-awesome-icon icon="random" />
-        Shuffle characters
+        {{ $t("shuffle") }}
       </div>
     </div>
   </Modal>
@@ -161,6 +168,18 @@ export default {
   }
 };
 </script>
+
+<i18n>
+  {
+    "en": {
+      "select-roles": "Select the characters for {nonTravelers} players:",
+      "warning-incorrect-setup": "Warning: there are characters selected that modify the game setup! The randomizer does not account for these characters.",
+      "allow-duplicate": "Allow duplicate characters",
+      "assign-randomly": "Assign {roles} characters randomly",
+      "shuffle": "Shuffle characters"
+    }
+  }
+</i18n>
 
 <style lang="scss" scoped>
 @import "../../vars.scss";
