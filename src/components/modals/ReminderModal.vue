@@ -117,6 +117,9 @@ export default {
   {
     "en": {
       "reminder-token": "Choose a reminder token"
+    },
+    "fr": {
+      "reminder-token": "Choisir un jeton de rappel"
     }
   }
 </i18n>

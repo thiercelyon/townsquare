@@ -283,6 +283,11 @@ export default {
       "other-characters": "Other characters",
       "demon-bluffs": "Demon bluffs",
       "fabled": "Fabled"
+    },
+    "fr": {
+      "other-characters": "Autres rôles",
+      "demon-bluffs": "Bluffs maléfiques",
+      "fabled": "Légendaire"
     }
   }
 </i18n>

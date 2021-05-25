@@ -180,6 +180,16 @@ export default {
       "minion-reminder": "• If more than one Minion, they all make eye contact with each other. • Show the “This is the Demon” card. Point to the Demon.",
       "demon-info": "Demon info & bluffs",
       "demon-reminder": "• Show the “These are your minions” card. Point to each Minion. • Show the “These characters are not in play” card. Show 3 character tokens of good characters not in play."
+    },
+    "fr": {
+      "show-reference": "Afficher la fiche de Rôles",
+      "night-order": "Ordre de Nuit",
+      "first-night": "Première Nuit",
+      "other-nights": "Autres Nuits",
+      "minion-info": "Info Sbires",
+      "minion-reminder": "• Si plus d'un sbire en jeu, ils se reconnaissent la nuit. • Montrer la carte “Voici le démon” et pointez le joueur jouant le démon.",
+      "demon-info": "Info & Bluffs Demon",
+      "demon-reminder": "• Montrer la carte “Voici vos sbires” et pointez chacun joueurs sbires. • Montrer la carte “Ces rôles ne sont pas en jeu”. Montrer 3 jetons de rôles qui ne sont pas en jeu."
     }
   }
 </i18n>

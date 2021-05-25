@@ -49,6 +49,9 @@ export default {
   {
     "en": {
       "choose-fabled": "Choose a fabled character to add to the game"
+    },
+    "fr": {
+      "choose-fabled": "Sélectionner un Légendaire à ajouter à la partie"
     }
   }
 </i18n>

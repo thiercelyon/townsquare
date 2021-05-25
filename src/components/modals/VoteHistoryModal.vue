@@ -125,6 +125,18 @@ export default {
       "votes": "Votes",
       "majority": "Majority",
       "voters": "Voters"
+    },
+    "fr": {
+      "vote-history": "Historique de votes",
+      "accessible-players": "Visible pour les joueurs",
+      "clear": "Supprimer pour tous",
+      "time": "Heure",
+      "nominator": "Accusateur",
+      "nominee": "Accusé",
+      "type": "Type",
+      "votes": "Votes",
+      "majority": "Majorité",
+      "voters": "Votants"
     }
   }
 </i18n>
