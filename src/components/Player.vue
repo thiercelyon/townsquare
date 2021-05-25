@@ -69,6 +69,12 @@
           title="Swap seats with this player"
         />
         <font-awesome-icon
+          icon="exchange-alt"
+          class="swapRoles"
+          @click="swapRole(player)"
+          title="Swap roles with this player"
+        />
+        <font-awesome-icon
           icon="redo-alt"
           class="move"
           @click="movePlayer(player)"
@@ -139,6 +145,10 @@
             <li @click="swapPlayer()" :class="{ disabled: session.lockedVote }">
               <font-awesome-icon icon="exchange-alt" />
               {{ $t("swap-seats") }}
+            </li>
+            <li @click="swapRole()" :class="{ disabled: session.lockedVote }">
+              <font-awesome-icon icon="exchange-alt" />
+              Swap roles
             </li>
             <li @click="removePlayer" :class="{ disabled: session.lockedVote }">
               <font-awesome-icon icon="times-circle" />
@@ -320,6 +330,10 @@ export default {
     swapPlayer(player) {
       this.isMenuOpen = false;
       this.$emit("trigger", ["swapPlayer", player]);
+    },
+    swapRole(player) {
+      this.isMenuOpen = false;
+        this.$emit("trigger", ["swapRole", player]);
     },
     movePlayer(player) {
       this.isMenuOpen = false;
@@ -554,6 +568,7 @@ export default {
   z-index: 2;
   cursor: pointer;
   &.swap,
+  &.swapRoles,
   &.move,
   &.nominate,
   &.vote,
@@ -605,6 +620,7 @@ li.from:not(.nominate) .player .overlay svg.cancel {
 }
 
 li.swap:not(.from) .player .overlay svg.swap,
+li.swapRoles:not(.from) .player .overlay svg.swapRoles,
 li.nominate .player .overlay svg.nominate,
 li.move:not(.from) .player .overlay svg.move {
   opacity: 1;
