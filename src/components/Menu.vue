@@ -131,8 +131,7 @@
           </template>
           <template v-else>
             <li v-if="session.ping">
-              {{ $t("delay-to") }}
-              {{ session.isSpectator ? "host" : "players" }}
+              {{ $t("delay-to") }} {{ session.isSpectator ? "host" : "players" }}
               <em>{{ session.ping }}ms</em>
             </li>
             <li @click="copySessionUrl">
@@ -381,7 +380,7 @@ export default {
       "show": "Show",
       "hide": "Hide",
       "live-session": "Live Session",
-      "delay-to": "Delay to ",
+      "delay-to": "Delay to",
       "vote-history": "Vote history",
       "leave-session": "Leave Session",
       "players": "Players",
@@ -412,6 +411,55 @@ export default {
       "randomize-warn": "Are you sure you want to randomize seatings?",
       "remove-players-warn": "Are you sure you want to remove all players?",
       "remove-roles-warn": "Are you sure you want to remove all player roles?"
+    },
+    "fr": {
+      "grimoire": "Grimoire",
+      "zoom": "Zoom",
+      "other-players-in-session": "autres joueurs dans la partie",
+      "show-background-image": "Montrer l'image de fond",
+      "background-image": "Image de fond",
+      "show-custom-image": "Afficher image de fond",
+      "night-order": "Ordre de nuit",
+      "disable-animations": "Désactiver les animations",
+      "mute-sounds": "Couper le son",
+      "playing": "Joueur",
+      "hosting": "Hôte",
+      "switch-night": "Passer à la nuit",
+      "switch-day": "Passer à la journée",
+      "show": "Afficher",
+      "hide": "Masquer",
+      "live-session": "Session",
+      "players": "Joueur",
+      "add": "Ajouter",
+      "randomize": "Randomiser",
+      "remove-all": "Tout supprimer",
+      "characters": "Personnages",
+      "select-edition": "Choisir Module",
+      "choose-assign": "Choisir & Assigner",
+      "add-fabled": "Ajouter Légendaire",
+      "help": "Aide",
+      "reference-sheet": "Fiche de Rôles",
+      "night-order-sheet": "Ordre de Nuit",
+      "game-state-json": "JSON Etat du Jeu",
+      "join-discord": "Rejoindre Discord",
+      "source-code": "Code source",
+      "delay-to": "Retarder de",
+      "vote-history": "Historique des votes",
+      "leave-session": "Quitter",
+      "host": "Héberger (Conteur)",
+      "join": "Rejoindre (Joueur)",
+      "copy-player-link": "Copier lien de partie",
+      "send-characters": "Envoyer rôles",
+      "player-name": "Nom du joueur",
+      "enter-background": "Entrez l'URL de l'image de fond à charger",
+      "create-session": "Saisir l'identifiant de session / nom de votre session",
+      "distribute-roles": "Souhaitez-vous assigner ces rôles à TOUS les joueurs assis ?",
+      "custom-images-warn": "Êtes-vous certain de vouloir autoriser les images personnalisées ? Un auteur script malintentionné pourrait obtenir votre adresse IP de cette façon.",
+      "join-session": "Saisir l'identifiant de session / nom de la session à rejoindre",
+      "leave-warn": "Êtes-vous certain de vouloir quitter la partie en cours ?",
+      "randomize-warn": "Êtes-vous certain de vouloir randomiser le positionnement des joueurs ?",
+      "remove-players-warn": "Êtes-vous certain de vouloir supprimer tous les joueurs ?",
+      "remove-roles-warn": "Êtes-vous certain de vouloir supprimer tous les rôles ?"
     }
   }
 </i18n>

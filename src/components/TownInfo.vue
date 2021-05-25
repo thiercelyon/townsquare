@@ -103,6 +103,10 @@ export default {
     "en": {
       "add-more": "Please add more players!",
       "night-phase": "Night phase"
+    },
+    "fr": {
+      "add-more": "Ajoutez davantage de joueurs!",
+      "night-phase": "Phase de nuit"
     }
   }
 </i18n>

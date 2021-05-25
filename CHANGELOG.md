@@ -1,7 +1,6 @@
 # Release Notes
 
 - added Farmer to list of available characters
-- added i18n support
 
 ---
 

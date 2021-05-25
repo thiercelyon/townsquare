@@ -148,7 +148,7 @@
             </li>
             <li @click="swapRole()" :class="{ disabled: session.lockedVote }">
               <font-awesome-icon icon="exchange-alt" />
-              Swap roles
+              {{ $t("swap-roles") }}
             </li>
             <li @click="removePlayer" :class="{ disabled: session.lockedVote }">
               <font-awesome-icon icon="times-circle" />
@@ -333,7 +333,7 @@ export default {
     },
     swapRole(player) {
       this.isMenuOpen = false;
-        this.$emit("trigger", ["swapRole", player]);
+      this.$emit("trigger", ["swapRole", player]);
     },
     movePlayer(player) {
       this.isMenuOpen = false;
@@ -372,6 +372,7 @@ export default {
       "rename": "Rename",
       "move-player": "Move player",
       "swap-seats": "Swap seats",
+      "swap-roles": "Swap roles",
       "remove": "Remove",
       "empty-seat": "Empty seat",
       "nomination": "Nomination",
@@ -379,6 +380,20 @@ export default {
       "vacate-seat": "Vacate seat",
       "seat-occupied": "Seat occupied",
       "player-name": "Player name"
+    },
+    "fr": {
+      "change-pronouns": "Changer Pronoms",
+      "rename": "Renommer",
+      "move-player": "Déplacer joueur",
+      "swap-seats": "Échanger places",
+      "swap-roles": "Échanger rôles",
+      "remove": "Supprimer",
+      "empty-seat": "Place libre",
+      "nomination": "Nomination",
+      "claim-seat": "S'asseoir",
+      "vacate-seat": "Se lever",
+      "seat-occupied": "Place occupée",
+      "player-name": "Nom du joueur"
     }
   }
 </i18n>

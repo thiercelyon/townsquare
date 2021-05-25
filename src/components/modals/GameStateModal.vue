@@ -110,6 +110,11 @@ export default {
       "current-game-state": "Current Game State",
       "copy-json": "Copy JSON",
       "load-state": "Load State"
+    },
+    "fr": {
+      "current-game-state": "État partie en cours",
+      "copy-json": "Copier JSON",
+      "load-state": "Charger État"
     }
   }
 </i18n>

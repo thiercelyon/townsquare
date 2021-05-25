@@ -177,6 +177,13 @@ export default {
       "allow-duplicate": "Allow duplicate characters",
       "assign-randomly": "Assign {roles} characters randomly",
       "shuffle": "Shuffle characters"
+    },
+    "fr": {
+      "select-roles": "Choisir les rôles pour les {nonTravelers} joueurs :",
+      "warning-incorrect-setup": "Attention: les rôles sélectionnés modifient la répartition de la partie !",
+      "allow-duplicate": "Autoriser doublons de rôles",
+      "assign-randomly": "Assigner {roles} rôles aléatoirement",
+      "shuffle": "Mélanger les rôles"
     }
   }
 </i18n>

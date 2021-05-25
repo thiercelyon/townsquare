@@ -159,6 +159,15 @@ export default {
       "outsider": "Outsider",
       "minion": "Minion",
       "demon": "Demon"
+    },
+    "fr": {
+      "show-night-order": "Afficher Ordre de Nuit",
+      "character-reference": "Fiche de Rôles",
+      "jinxed": "Duo",
+      "townsfolk": "Villageois",
+      "outsider": "Etranger",
+      "minion": "Sbire",
+      "demon": "Demon"
     }
   }
 </i18n>

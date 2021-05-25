@@ -181,6 +181,12 @@ export default {
       "night-order": "Night Order",
       "first-night": "First Night",
       "other-nights": "Other Nights"
+    },
+    "fr": {
+      "show-reference": "Afficher la fiche de Rôles",
+      "night-order": "Ordre de Nuit",
+      "first-night": "Première Nuit",
+      "other-nights": "Autres Nuits"
     }
   }
 </i18n>

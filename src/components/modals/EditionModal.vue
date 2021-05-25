@@ -205,6 +205,20 @@ export default {
       "upload-json": "Upload JSON",
       "enter-url": "Enter URL",
       "back": "Back"
+    },
+    "fr": {
+      "select-edition": "Choisir une composition :",
+      "custom-script": "Composition / Roles personnalisés",
+      "load-script-title": "Charger composition / rôles personnalisés",
+      "load-script-help": "Pour jouer avec une composition personnalisée, il faut choisir les rôles avec lesquels vous souhaitez jouer sur le lien officiel {link} puis soit télécharger le \"custom-list.json\" directement, soit fournir une URL vers le fichier JSON hébergé.",
+      "script-tool": "Éditeur de composition",
+      "custom-characters-notice": "Pour jouer avec des rôles personnalisés, veuillez-vous référer à {documentation} décrivant comment générer un fichier de rôles.",
+      "documentation": "la documentation",
+      "trusted-sources": "Ne chargez que des fichiers provenant de sources de confiance !",
+      "popular-scripts": "Quelques compositions populaires :",
+      "upload-json": "Télécharger JSON",
+      "enter-url": "Saisir URL",
+      "back": "Retour"
     }
   }
 </i18n>

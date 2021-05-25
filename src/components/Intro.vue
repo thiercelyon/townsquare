@@ -45,6 +45,12 @@ export default {
       "townsquare-grimoire": "Virtual Town Square and Grimoire",
       "menu": "Menu",
       "project-notice": "This project is free and open source and can be found on {github}. It is not affiliated with The Pandemonium Institute. \"Blood on the Clocktower\" is a trademark of Steven Medway and The Pandemonium Institute."
+    },
+    "fr": {
+      "welcome": "Bienvenue sur {grimoire} (non officiels) de Blood on the Clocktower! Ajouter quelques joueurs grâce au {menu} en haut à droite ou en appuyant sur la touche {a-key}. Vous pouvez aussi rejoindre une partie en cours en appuyant sur la touche {j-key}.",
+      "townsquare-grimoire": "le Grimoire et le Town Square Virtuel",
+      "menu": "Menu",
+      "project-notice": "Le code source de ce projet, gratuit et libre, est disponible sur {github}. Il n'est pas affilié à The Pandemonium Institute. \"Blood on the Clocktower\" est une marque déposée de Steven Medway et The Pandemonium Institute."
     }
   }
 </i18n>

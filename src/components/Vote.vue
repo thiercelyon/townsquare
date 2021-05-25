@@ -275,6 +275,26 @@ export default {
       "hand-down": "Hand DOWN",
       "hand-up": "Hand UP",
       "claim-seat": "Please claim a seat to vote"
+    },
+    "fr": {
+      "nominated": "a accusé",
+      "vote": "vote",
+      "in-favor": "pour",
+      "majority-is": "majorité est",
+      "time-per-player": "Temps par joueur",
+      "countdown": "Décompte",
+      "restart": "Redémarrer",
+      "start": "Démarrer",
+      "pause": "Stop",
+      "resume": "Reprendre",
+      "reset": "Réinitialiser",
+      "close": "Fermer",
+      "mark-execution": "Marquer pour exécution",
+      "clear-mark": "Retirer marque",
+      "seconds-between-votes": "secondes entre les votes",
+      "hand-down": "Voter POUR",
+      "hand-up": "Voter CONTRE",
+      "claim-seat": "Prenez un siège pour voter"
     }
   }
 </i18n>

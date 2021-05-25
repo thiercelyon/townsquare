@@ -122,6 +122,12 @@ export default {
       "bluffing": "bluffing",
       "edition-roles": "Edition Roles",
       "other-travelers": "Other Travelers"
+    },
+    "fr": {
+      "choose-character": "Choisir un nouveau rôle pour {player}",
+      "bluffing": "bluffs",
+      "edition-roles": "Rôles Module",
+      "other-travelers": "Autres Voyageurs"
     }
   }
 </i18n>
